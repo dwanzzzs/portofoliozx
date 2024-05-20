@@ -1,0 +1,18 @@
+{
+    "rewrites": [],
+    "redirects": [],
+    "headers": [
+      {
+        "source": "/path/to/your/asset",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</PhotoFolio/assets/img>; rel=preload; as=image"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+  
