@@ -218,7 +218,7 @@ h6 {
   justify-content: center; /* Memusatkan gambar secara horizontal */
   align-items: center; /* Memusatkan gambar secara vertikal */
   background-color: var(--color-secondary); /* Warna latar belakang jika gambar tidak dimuat */
-  background-image: url('/PhotoFolio/assets/img/Framedia.png');
+  background-image: url('/assets/img/Framedia.png');
   background-size: contain; /* Ukuran gambar menyesuaikan kontainer */
   background-repeat: no-repeat; /* Gambar tidak diulang */
   background-position: center; /* Gambar diposisikan di tengah */
