@@ -10,14 +10,40 @@
 # Set main reusable colors and fonts using CSS variables
 # Learn more about CSS variables at https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
 --------------------------------------------------------------*/
-/* Fonts */
-.fixed-element {
-  position: fixed;
-  top: 0;
-  left: 0;
+body, html {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  height: 100%; /* Mungkin terlalu besar dan menutupi seluruh layar */
+  height: 100%;
+  overflow: auto;
 }
+
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #fff; /* Bisa diganti sesuai kebutuhan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-image {
+  width: 150px; /* Sesuaikan ukuran gambar sesuai kebutuhan */
+  height: 150px;
+  animation: spin 2s linear infinite; /* Menambahkan animasi jika diperlukan */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#content {
+  display: none;
+}
+/* Fonts */
 :root {
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Inter", sans-serif;
@@ -40,7 +66,6 @@
 # General
 --------------------------------------------------------------*/
 body {
-  overflow: auto; /* atau overflow-y: auto; */
   font-family: var(--font-default);
   color: var(--color-default);
   background-color: #000;
@@ -215,11 +240,7 @@ h6 {
   left: auto;
   right: 0;
 }
-#preloader-logo {
-  width: 100px; /* Sesuaikan ukuran logo */
-  height: auto;
-  animation: logoAnimation 3s linear infinite; /* Tambahkan animasi pada logo */
-}
+
 #preloader .line {
   position: relative;
   overflow: hidden;
@@ -250,7 +271,7 @@ h6 {
   width: 1px;
   height: 100%;
   transform: translateY(-100%);
-  animation: linemove 2400ms linear 0s infinite;
+  animation: linemove ms linear 0s infinite;
   animation-delay: 10000ms;
 }
 
@@ -266,25 +287,6 @@ h6 {
 #preloader.loaded:before,
 #preloader.loaded:after {
   animation: preloaderfinish 600ms ease-in-out 500ms forwards;
-}
-@keyframes hideLogo {
-  0% {
-      opacity: 1; /* Logo terlihat pada awal animasi */
-  }
-  90% {
-      opacity: 1; /* Logo tetap terlihat selama sebagian besar durasi animasi */
-  }
-  100% {
-      opacity: 0; /* Logo menghilang pada akhir animasi */
-  }
-}
-
-#preloader-logo {
-  animation: hideLogo 0.1s ease-out forwards; /* Animasi untuk menghilangkan logo secara halus */
-}
-
-#preloader.loaded #preloader-logo {
-  opacity: 0; /* Pastikan logo tetap tersembunyi setelah animasi selesai */
 }
 
 @keyframes lineincrease {
